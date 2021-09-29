@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!-- <script type="text/javascript" src="cordova.js"></script> -->
+        <!-- Link na CSS stil -->
+        <link href="css/glavniStil.css" type="text/css" rel="stylesheet" />
+        <!-- Link na JavaScript datoteku -->
+        <script type="text/javascript" src="js/main.js"></script>
+        <!-- <script type="text/javascript" src="js/map.js"></script> -->
+        
+        
+        <link rel="stylesheet"href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Predložak</title>
+    </head>
+    <body>
+      <script async defer 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnyqIuTUIjIcwrmEqXh-GQd-wVxqsCKDY&callback=initMap&libraries=places" >
+      </script>
+   
+      <div id="aplikacija">
+
+        <!--PRVA STRANICA-->
+        <div data-role="page" id="signIn-page" > 
+        <div data-role="header" style="text-align: center;" id="naslov"> 
+          <h1> Online rezervacija </h1> 
+        </div> 
+        
+        <div id="icons">
+            <img src="img/IMG_8096 2.png" id="prva_slika">
+            <img src="img/IMG_8095 2.png" id="druga_slika">
+            <img src="img/IMG_8097 2.png" id="treca_slika">
+        </div>
+        
+        
+        <label for="email"><b>E-mail:</b></label>
+        <input type="text" id="email">
+        <label for="pass"><b>Password:</b></label>
+        <input type="password" id="pass">
+        <label><b>Odaberite jeste li gost ili vlasnik restorana:</b></label>
+        <input type="radio" name="radioGroup" id="gost">
+        <label for="gost"><b>Gost</b> </label> 
+        <input type="radio" id="restoran" name="radioGroup">
+        <label for="restoran"><b>Vlasnik restorana</b></label>
+        <input type="button" value="Sign in" id="btnsignIn">
+        <input type="button" value="Sign up" id="btnsignUp">
+        
+        
+      </div> 
+      <!--PRVA STRANICA KRAJ-->
+
+      <!--DRUGA STRANICA-->
+      <div data-role="page" id="signUp-page"> 
+        <div data-role="header" id="naslov"> <h1> Prijava korisnika</h1></div>
+        <br>
+        <label for="ime"><b>Ime:</b></label> 
+        <input type="text" id="ime">
+        <label for="prezime"><b>Prezime:</b></label>
+        <input type="text" id="prezime">
+        <label for="broj"><b>Broj mobitela:</b></label>
+        <input type="number" id="broj">
+        <label for="email2"><b>E-mail:</b></label>
+        <input type="email" id="email2">
+        <label for="lozinka"><b>Lozinka:</b></label>
+        <input type="password" id="lozinka">
+        <br>
+        <input type="button" id="btnPrijava" value="Prijava">
+        <input type="button" id="btnPovratak" value="Povratak">
+        
+      </div> 
+      <!--DRUGA STRANICA KRAJ-->
+
+      <!--TREĆA STRANICA-->
+      <div data-role="page" id="signUpRestoran-page">
+        <div data-role="header" id="naslov"><h1>Prijava restorana</h1></div>
+        <br>
+        <label for="imeRestorana"><b>Ime restorana:</b></label>
+        <input type="text" id="imeRestorana" placeholder="Unesite ime restorana...">
+        <label for="maxBrojGostiju"><b>Maksimalan broj gostiju:</b></label>
+        <input type="number" id="maxBrojGostiju" placeholder="Unesite broj gostiju...">
+        <label for="brojStolova"><b>Unesite broj stolova</b></label>
+        <input type="number" id="brojStolova" placeholder="Unesite broj stolova...">
+        <label for="otvaranje"><b>Vrijeme otvaranja:</b></label>
+        <input type="time" id="otvaranje" placeholder="Unesite vrijeme otvaranja...">
+        <label for="zatvaranje"><b>Vrijeme zatvaranja:</b></label>
+        <input type="time" id="zatvaranje" placeholder="Unesite vrijeme zatvaranja...">
+        <label for="emailRestorana"><b>Unesite e-mail restorana:</b></label>
+        <input type="email" id="emailRestorana" placeholder="Unesite e-mail...">
+        <label for="passRestorana"><b>Unesite lozinku:</b></label>
+        <input type="password" id="passRestorana" placeholder="Unesite lozinku...">
+        <input type="button" id="btnPrijavaRestorana" value="Prijava">
+        <input type="button" id="btnPovratak2" value="Povratak">
+        
+      </div>
+      <!--TREĆA STRANICA KRAJ-->
+
+      <!--ČETVRTA STRANICA-->
+      <div data-role="page" id="home-page"> 
+        <div id="navigationBar">
+          
+        <a href="#home-page">Početna</a>
+        <a href="##rezervation-page" id="btnPrikazRezervacija"> Rezervacije</a>
+        <a href="#signIn-page" id="btnOdjava">Odjava</a>
+        </nav>
+        </div> 
+      
+        <div id="odabir">
+      
+          <img src="img/grill.png" id="grill">
+          <img src="img/burger.png" id="burger">
+          <img src="img/pizza.png" id="pizza">
+          <img src="img/sushi.png" id="sushi">
+          <img src="img/fish.png" id="fish">
+        </div>
+        <br>
+        <label><b>Restorani:</b></label>
+        <div id="map">
+          <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46293.53461238918!2d16.41406395746523!3d43.51597885613626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13355dfc6bbcf517%3A0xa1798ff631b49f98!2s21000%2C%20Split!5e0!3m2!1shr!2shr!4v1581117508777!5m2!1shr!2shr" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
+        </div>
+        <br>
+          <label for="odabraniRestoran"><b>Odabrani restoran:</b></label>
+          <input type="text" id="odabraniRestoran" readonly>
+          <label for="brojLjudi"> <b>Broj gostiju:</b></label>
+          <input type="number" id="brojLjudi">
+          <label for="datum"><b>Datum:</b></label>
+          <input type="date" id="datum">
+          <label for="sat"><b>Sat:</b></label>
+          <input type="time" id="vrijeme">
+          <input type="button" id="btnRezerviraj" value="Rezerviraj">
+      </div>
+      <!--ČETVRTA STRANICA KRAJ-->
+
+      <!--PETA STRANICA-->
+      <div data-role="page" id="#rezervation-page"> 
+        <div id="navigationBar">
+            <a href="#home-page">Početna</a>
+            <a href="#rezervation-page" id="btnPrikazRezervacija"> Rezervacije</a>
+            <a href="#signIn-page" id="btnOdjava">Odjava</a>
+        </div>
+        <span><b>Vaše rezervacije:</b></span><br>
+          <span id="nematodo" style="display: none;"></span>
+          <ul id="myUL">
+          </ul>  
+      </div> 
+      <!--PETA STRANICA KRAJ-->
+
+      <!--ŠESTA STRANICA-->
+      <div data-role="page" id="home-page-restorani">
+        <div id="navigationBar">
+          <a href="#home-page-restorani" id="btnRezervacijeRestorani">Rezervacije</a>
+          <a href="#signIn-page" id="btnOdjava2">Odjava</a>
+      </div>
+      <span><b>Vaše rezervacije:</b></span><br>
+        <span id="nematodo2" style="display: none;"></span>
+        <ul id="myUL2">
+        </ul>  
+      <!--ŠESTA STRANICA KRAJ-->
+      </div>
+    </body>
+</html>
